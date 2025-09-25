@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* PG Finder Design System - Clean, Professional, No Gradients */
+
+@layer base {
+  :root {
+    /* Core Brand Colors - Professional PG Finder Theme */
+    --background: 0 0% 100%;
+    --foreground: 215 25% 17%;
+    
+    /* Professional Blue Primary */
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 221 83% 45%;
+    
+    /* Slate Gray Secondary */
+    --secondary: 215 16% 47%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 210 40% 96%;
+    
+    /* Success Green Accent */
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+    --accent-light: 160 84% 95%;
+    
+    /* Card & Surface Colors */
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 17%;
+    --card-border: 220 13% 91%;
+    
+    /* Interactive Elements */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --input-focus: 221 83% 53%;
+    --ring: 221 83% 53%;
+    
+    /* Text Hierarchy */
+    --text-primary: 215 25% 17%;
+    --text-secondary: 215 16% 47%;
+    --text-muted: 215 16% 65%;
+    
+    /* Status Colors */
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Spacing & Layout */
+    --radius: 0.5rem;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    
+    /* PG Specific Design Tokens */
+    --pg-card-shadow: 0 2px 8px 0 rgb(0 0 0 / 0.08);
+    --pg-card-hover-shadow: 0 4px 12px 0 rgb(0 0 0 / 0.15);
+    --pg-price-bg: 160 84% 95%;
+    --pg-rating-star: 38 92% 50%;
+    
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* PG Card Component Styles */
+  .pg-card {
+    @apply bg-card border border-card-border rounded-lg overflow-hidden;
+    box-shadow: var(--pg-card-shadow);
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .pg-card:hover {
+    box-shadow: var(--pg-card-hover-shadow);
+    @apply transform -translate-y-1;
+  }
+  
+  /* Search Section Styles */
+  .search-section {
+    @apply bg-background border-b border-border;
+  }
+  
+  /* Price Badge */
+  .price-badge {
+    @apply px-3 py-1 rounded-md text-sm font-semibold;
+    background-color: hsl(var(--pg-price-bg));
+    color: hsl(var(--accent));
+  }
+  
+  /* Rating Stars */
+  .rating-star {
+    color: hsl(var(--pg-rating-star));
+  }
+  
+  /* Professional Button Variants */
+  .btn-hero {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground font-medium;
+    @apply px-6 py-3 rounded-lg shadow-md transition-all duration-200;
+    @apply hover:shadow-lg hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-light hover:bg-secondary/10 text-secondary;
+    @apply border border-border font-medium;
+    @apply px-4 py-2 rounded-md transition-all duration-200;
+  }
+  
+  .btn-success {
+    @apply bg-accent hover:bg-accent/90 text-accent-foreground;
+    @apply px-4 py-2 rounded-md shadow-sm font-medium;
+    @apply transition-all duration-200;
+  }
+  
+  /* Form Input Styles */
+  .form-input {
+    @apply border border-input bg-background px-3 py-2 rounded-md;
+    @apply focus:border-primary focus:ring-2 focus:ring-primary/20;
+    @apply transition-all duration-200 outline-none;
+  }
+  
+  /* Gender Badge Styles */
+  .gender-male {
+    @apply bg-blue-50 text-blue-700 border border-blue-200;
+  }
+  
+  .gender-female {
+    @apply bg-pink-50 text-pink-700 border border-pink-200;
+  }
+  
+  .gender-coed {
+    @apply bg-purple-50 text-purple-700 border border-purple-200;
+  }
+}
