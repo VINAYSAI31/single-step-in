@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Building2, Lock, User } from 'lucide-react';
 
-const AdminLogin = () => {
+const PGOwnerLogin = () => {
   const [credentials, setCredentials] = useState({
     username: '',
     password: ''
@@ -16,10 +16,12 @@ const AdminLogin = () => {
     setIsLoading(true);
     setError('');
 
-    // Simple demo authentication
-    if (credentials.username === 'admin' && credentials.password === 'admin123') {
-      localStorage.setItem('isAdminLoggedIn', 'true');
-      navigate('/admin/dashboard');
+    // Demo authentication for PG owners
+    const demoUsers = ['owner1', 'owner2', 'owner3'];
+    if (demoUsers.includes(credentials.username) && credentials.password === 'demo123') {
+      localStorage.setItem('isPGOwnerLoggedIn', 'true');
+      localStorage.setItem('currentPGOwner', credentials.username);
+      navigate('/pg-owner/dashboard');
     } else {
       setError('Invalid username or password');
     }
@@ -36,13 +38,13 @@ const AdminLogin = () => {
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-2 mb-4">
               <Building2 className="w-8 h-8 text-primary" />
-              <span className="text-2xl font-bold text-text-primary">PG Finder</span>
+              <span className="text-2xl font-bold text-text-primary">PG Owner Portal</span>
             </div>
             <h2 className="text-3xl font-bold text-text-primary mb-2">
-              Admin Login
+              Owner Login
             </h2>
             <p className="text-text-secondary">
-              Access the PG management dashboard
+              Manage your PG listings and view inquiries
             </p>
           </div>
 
@@ -107,7 +109,6 @@ const AdminLogin = () => {
                 {isLoading ? 'Signing in...' : 'Sign In'}
               </button>
             </form>
-
           </div>
 
           {/* Back to Home */}
@@ -127,7 +128,7 @@ const AdminLogin = () => {
         <div className="flex items-center justify-center p-12">
           <div className="max-w-md">
             <h3 className="text-3xl font-bold mb-6">
-              Manage Your PG Listings
+              Manage Your PG Business
             </h3>
             <div className="space-y-4 text-primary-foreground/90">
               <div className="flex items-start gap-3">
@@ -135,9 +136,9 @@ const AdminLogin = () => {
                   <span className="text-xs font-bold">1</span>
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1">Add New PG Listings</h4>
+                  <h4 className="font-semibold mb-1">View Your Listings</h4>
                   <p className="text-sm opacity-90">
-                    Create detailed listings with photos, amenities, and pricing
+                    See all your PG properties in one dashboard
                   </p>
                 </div>
               </div>
@@ -146,9 +147,9 @@ const AdminLogin = () => {
                   <span className="text-xs font-bold">2</span>
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1">Update Information</h4>
+                  <h4 className="font-semibold mb-1">Track Interested Users</h4>
                   <p className="text-sm opacity-90">
-                    Keep availability, pricing, and details current
+                    See who liked your PG and their contact details
                   </p>
                 </div>
               </div>
@@ -157,9 +158,9 @@ const AdminLogin = () => {
                   <span className="text-xs font-bold">3</span>
                 </div>
                 <div>
-                  <h4 className="font-semibold mb-1">Monitor Performance</h4>
+                  <h4 className="font-semibold mb-1">Update & Manage</h4>
                   <p className="text-sm opacity-90">
-                    Track views, inquiries, and booking success
+                    Edit details, pricing, and availability instantly
                   </p>
                 </div>
               </div>
@@ -171,4 +172,4 @@ const AdminLogin = () => {
   );
 };
 
-export default AdminLogin;
+export default PGOwnerLogin;

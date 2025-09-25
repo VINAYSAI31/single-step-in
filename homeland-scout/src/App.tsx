@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
+import PGOwnerLogin from "./pages/PGOwnerLogin";
+import PGOwnerDashboard from "./pages/PGOwnerDashboard";
 import NotFound from "./pages/NotFound";
 import { Analytics } from "@vercel/analytics/next"
 
@@ -21,6 +23,8 @@ const App = () => (
           <Route path="/" element={<Dashboard />} />
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/pg-owner" element={<PGOwnerLogin />} />
+          <Route path="/pg-owner/dashboard" element={<PGOwnerDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
           
